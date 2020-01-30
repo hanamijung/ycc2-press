@@ -1,0 +1,32 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  deploy:
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: 'Init: Summon NodeJS'
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 'Init: Install yarn'
+        run: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+      - name: 'Init: Install firebase-tools'
+        run: |
+          yarn global add firebase-tools
+      - name: "Deploy: Upload to Firebase"
+        env:
+          FIREBASE_DEPLOY_KEY: ${{ secrets.FIREBASE_DEPLOY_KEY }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: |
+          firebase deploy -m "Automatic deployment from GitHub Actions" --non-interactive --token $FIREBASE_DEPLOY_KEY --project $FIREBASE_PROJECT_ID
