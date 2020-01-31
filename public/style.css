@@ -28,6 +28,10 @@ img {
   width: 200px;
 }
 
+.logo {
+  filter: drop-shadow(rgba(65, 147, 164, 0.32) 2px 4px 6px);
+}
+
 .content-box {
   width: 100%;
   font-size: 14px;
@@ -37,4 +41,5 @@ img {
   padding: 40px;
   overflow: hidden;
   overflow-y: scroll;
+  filter: drop-shadow(rgba(65, 147, 164, 0.32) 2px 4px 6px);
 }
