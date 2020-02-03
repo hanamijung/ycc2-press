@@ -42,12 +42,12 @@ img {
   font-family: "Sarabun", sans-serif;
   font-size: 14px;
   background: #fff;
-  text-align: left;
   height: 300px;
   padding: 40px;
+  text-align: left;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   overflow-y: scroll;
-  filter: drop-shadow(rgba(65, 147, 164, 0.32) 2px 4px 6px);
 }
 
 .content-box p {
