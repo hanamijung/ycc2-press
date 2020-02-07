@@ -81,17 +81,6 @@ img {
   margin: 40px auto;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 250px auto 200px;
-  margin: 0 40px 70px 40px;
-}
-
-.grid > div {
-  display: flex;
-  align-items: center;
-}
-
 .button-link {
   display: flex;
   justify-content: center;
